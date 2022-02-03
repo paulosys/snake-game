@@ -6,11 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
     <title>Document</title>
 </head>
 <body>
-    <p id="score">Score: 0</p>
-    <canvas id="canvas" height="600" width="600"></canvas>
+
+    <main>
+        <p id="score">Score: 0</p>
+        <canvas id="canvas"></canvas>
+    </main>
+
+    <footer>
+        <div id="social">
+            <a class="social-icons" href="https://github.com/paulosys"><i class="fab fa-github"></i></a>
+            <a class="social-icons" href="https://www.linkedin.com/in/paulosergio1/"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <div id="controls">
+            <img class="img-controls" src="/imgs/controls/wasd.png" alt="">
+            <img class="img-controls" src="/imgs/controls/arrow.png" alt="">
+        </div>
+    </footer>
+
     <script src="scripts/script.js"></script>
 </body>
 </html>

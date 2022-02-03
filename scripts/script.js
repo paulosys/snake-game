@@ -1,5 +1,7 @@
 var scoreHTML = document.getElementById("score")
 var canvas = document.getElementById("canvas")
+    canvas.width = 600
+    canvas.height = 600
 var ctx = canvas.getContext("2d")
 var direction = "right"
 var changingDirection = false
@@ -33,8 +35,8 @@ function drawEachPartSnake(snakePart) {
 
 function drawFood() {
     if ((foodPosition[0] % 10 != 0 && foodPosition[1] % 10 != 0)) {
-        foodPosition[0] = Math.round((Math.random() * canvas.width) / 10) * 10;
-        foodPosition[1] = Math.round((Math.random() * canvas.height) / 10) * 10;
+        foodPosition[0] = Math.round((Math.random() * (canvas.width-10)) / 10) * 10;
+        foodPosition[1] = Math.round((Math.random() * (canvas.height-10)) / 10) * 10;
     }
 
     checkSpaceFood()
@@ -79,7 +81,6 @@ function checkCollisionBorder() {
 
 function checkCollisionFood() {
     if (snakeHead[0] == foodPosition[0] && snakeHead[1] == foodPosition[1]) {
-        console.log('bateu')
         snake.push(snakeHead)
         score++
         scoreHTML.innerHTML = `Score: ${score}`
@@ -89,7 +90,6 @@ function checkCollisionFood() {
 function checkSelfCollision() {
     for (let i = 1; i < snake.length; i++) {
         if (snakeHead[0] == snake[i].x && snakeHead[1] == snake[i].y) {
-            console.log('auto')
             gameOver();
         }
     }
@@ -108,7 +108,7 @@ const game = setInterval(() => {
 }, 70)
 
 function gameOver() {
-
+    
     resetGame()
     ctx.font = "normal 26px Arial";
     ctx.textAlign = "center";
@@ -138,7 +138,6 @@ document.querySelector("body").addEventListener("keydown", (event) => {
     if (!changingDirection && keyPress != oldkey) {
         changingDirection = true
 
-        console.log(keyPress)
         if (direction != "down" && (keyPress == 'w' || keyPress == "ArrowUp")) {
             direction = "up"
         }

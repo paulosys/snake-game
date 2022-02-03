@@ -8,10 +8,56 @@ body{
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    background-color: black;
 }
 
 #score{
+    color: #f1ebeb;
     font-size: 2rem;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+main{
+    margin: auto;
+}
+
+canvas{
+    outline: thick solid #3E3E3E;
+}
+
+footer{
+    display: flex;
+}
+
+#social{
+    font-size: 46px;
+    margin: auto;
+    padding-bottom: 2.5rem;
+    display: flex;
+    gap: 32px;
+}
+
+.fa-github{
+    color: white;
+}
+
+.fa-linkedin-in{
+    color: #0077B7;
+    
+}
+
+.fa-github:hover, .fa-linkedin-in:hover{
+    transform: translateY(-5px);
+}
+
+#controls{
+    position: absolute;
+    bottom: 0%;
+    right: 5%;
+}
+
+.img-controls{
+    height: 10vh;
+    margin: 0px 16px 32px;
 }
