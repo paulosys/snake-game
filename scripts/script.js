@@ -1,4 +1,5 @@
 var scoreHTML = document.getElementById("score")
+var buttonRestart = document.getElementById("restart-button")
 var canvas = document.getElementById("canvas")
     canvas.width = 600
     canvas.height = 600
@@ -10,6 +11,9 @@ var snake = [
     { x: 90, y: 250 },
     { x: 80, y: 250 },
     { x: 70, y: 250 },
+    { x: 60, y: 250 },
+    { x: 50, y: 250 },
+    { x: 40, y: 250 },
 ]
 var snakeHead = [snake[0].x, snake[0].y]
 
@@ -17,6 +21,7 @@ var foodPosition = [250, 250]
 
 var oldkey
 var keyPress
+var interval
 
 function clearCanvas() {
     ctx.fillStyle = "black"
@@ -95,7 +100,10 @@ function checkSelfCollision() {
     }
 }
 
-const game = setInterval(() => {
+
+
+function game(){
+    interval = setInterval(() => {
     clearCanvas()
 
     moveSnake(direction)
@@ -106,10 +114,11 @@ const game = setInterval(() => {
     checkCollisionBorder()
     checkCollisionFood()
 }, 70)
+}
 
 function gameOver() {
-    
-    resetGame()
+    clearInterval(interval)
+    buttonRestart.style.display = "block"
     ctx.font = "normal 26px Arial";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
@@ -129,6 +138,9 @@ function resetGame() {
     score = 0
     scoreHTML.innerHTML = "Score: 0"
     keyPress = ''
+    buttonRestart.style.display = "none"
+
+    location.reload()
 }
 
 document.querySelector("body").addEventListener("keydown", (event) => {
